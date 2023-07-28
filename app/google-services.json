@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "118770505634",
+    "project_id": "docmate-e8613",
+    "storage_bucket": "docmate-e8613.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118770505634:android:f15715ea2d652947aa84fb",
+        "android_client_info": {
+          "package_name": "com.example.DocMate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118770505634-9g2f195r2f7i4n4sgvbe6vo3v060tkp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1LJtQzSCwutj1eY7yIRxDOi-FwMPXCIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118770505634-9g2f195r2f7i4n4sgvbe6vo3v060tkp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118770505634:android:c5f3d89abb4493f6aa84fb",
+        "android_client_info": {
+          "package_name": "com.example.docmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118770505634-9g2f195r2f7i4n4sgvbe6vo3v060tkp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1LJtQzSCwutj1eY7yIRxDOi-FwMPXCIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118770505634-9g2f195r2f7i4n4sgvbe6vo3v060tkp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
