@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -94,7 +95,11 @@ fun ProfileScreenComposable(
         profileScreenViewModel.getDoctor(string)
         string?.let { profileScreenViewModel.getReviews(it) }
     }
-    Box(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -661,7 +666,8 @@ fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
             model = doctor.url,
             contentDescription = null,
             modifier = modifier
-                .clip(RoundedCornerShape(10.dp)),
+                .aspectRatio(1f)
+                .clip(CircleShape),
             contentScale = ContentScale.FillBounds
         )
 
@@ -671,15 +677,17 @@ fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
                 painter = painterResource(id = R.drawable.maledoctoravtar),
                 contentDescription = "",
                 modifier = modifier
-                    .clip(RoundedCornerShape(10.dp)),
+                    .aspectRatio(1f)
+                    .clip(CircleShape),
                 contentScale = ContentScale.FillBounds
             )
         } else {
             Image(
                 painter = painterResource(id = R.drawable.femaledoctoravtar),
                 contentDescription = "",
-                modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp)),
+                modifier = modifier
+                    .aspectRatio(1f)
+                    .clip(CircleShape),
                 contentScale = ContentScale.FillBounds
             )
         }

@@ -66,7 +66,7 @@ fun SplashScreen(
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "DocMate${SplashScreenViewModel.isFirstTime.value}}",
+            text = "DocMate",
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,

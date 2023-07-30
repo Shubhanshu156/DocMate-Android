@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -56,6 +57,8 @@ import coil.compose.AsyncImage
 import com.example.docmate.R
 import com.example.docmate.data.models.Response.Doctor
 import com.example.docmate.data.models.Response.Gender
+import com.example.docmate.data.models.Response.Patient
+import com.example.docmate.ui.Screens.Patient.ProfileScreen.ImageSection
 import com.example.docmate.ui.theme.DocColor
 import com.example.docmate.ui.theme.DocColorDark
 import com.example.docmate.ui.theme.Purple40
@@ -66,11 +69,10 @@ fun HomeScreenComposable(
     onSearch: () -> Unit,
     HomeScreenViewmodel: HomeScreenViewModel = hiltViewModel()
 ) {
-
+    var patientdetails=HomeScreenViewmodel.userProfileState.collectAsState().value
     Column(modifier = Modifier.padding(horizontal = 10.dp)) {
-
         Spacer(modifier = Modifier.height(20.dp))
-        Profile()
+        Profile(patientdetails)
         Spacer(modifier = Modifier.height(20.dp))
         SearchFilter("Search Doctors", onSearch = onSearch)
         Spacer(
@@ -346,23 +348,21 @@ private fun SearchFilter(hint: String = "", onSearch: () -> Unit) {
 
 
 @Composable
-fun Profile() {
+fun Profile(patient: Patient) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
             .height(50.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.male_doctor),
-            contentDescription = "",
-            contentScale = ContentScale.Fit,
+        ImagePatient(
+            patient,
             modifier = Modifier
                 .border(1.dp, DocColor, CircleShape)
-                .clip(CircleShape)
+
         )
         Spacer(modifier = Modifier.width(20.dp))
-        Text(text = "Username123dsf", fontSize = 18.sp, fontWeight = FontWeight.ExtraLight)
+        Text(text = "${patient.username}", fontSize = 18.sp, fontWeight = FontWeight.ExtraLight)
 
         Spacer(modifier = Modifier.weight(1f))
 
@@ -387,8 +387,10 @@ fun DoctoCard(doctor: Doctor) {
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            ImageSection(doctor)
-            Column(modifier = Modifier.padding(10.dp)) {
+            ImageSection(doctor,modifier=Modifier.weight(0.3f))
+            Column(modifier = Modifier
+                .padding(10.dp)
+                .weight(0.7f)) {
                 Text(text = doctor.fullname)
                 Text(text = "Bookings :  ${doctor.PrevSession}")
                 Text(text = "Category : ${doctor.category}")
@@ -400,40 +402,6 @@ fun DoctoCard(doctor: Doctor) {
     }
 }
 
-@Composable
-fun ImageSection(doctor: Doctor) {
-    if (doctor.url != null) {
-        AsyncImage(
-            model = doctor.url,
-            contentDescription = null,
-            modifier = Modifier
-                .size(100.dp)
-                .clip(RoundedCornerShape(10.dp)),
-            contentScale = ContentScale.FillBounds
-        )
-
-    } else {
-        if (doctor.gender == null || doctor.gender.uppercase() == Gender.MALE.name) {
-            Image(
-                painter = painterResource(id = R.drawable.maledoctoravtar),
-                contentDescription = "",
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillBounds
-            )
-        } else {
-            Image(
-                painter = painterResource(id = R.drawable.femaledoctoravtar),
-                contentDescription = "",
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillBounds
-            )
-        }
-    }
-}
 
 @Composable
 fun PermissionScreen() {
@@ -471,3 +439,37 @@ fun PermissionScreen() {
 
 }
 
+@Composable
+fun ImagePatient(patient: Patient, modifier: Modifier = Modifier) {
+    if (patient.profileurl != null) {
+        AsyncImage(
+            model = patient.profileurl,
+            contentDescription = null,
+            modifier = modifier
+                .aspectRatio(1f)
+                .clip(CircleShape),
+            contentScale = ContentScale.FillBounds
+        )
+
+    } else {
+        if (patient.gender == null || patient.gender.uppercase() == Gender.MALE.name) {
+            Image(
+                painter = painterResource(id = R.drawable.maledoctoravtar),
+                contentDescription = "",
+                modifier = modifier
+                    .aspectRatio(1f)
+                    .clip(CircleShape),
+                contentScale = ContentScale.FillBounds
+            )
+        } else {
+            Image(
+                painter = painterResource(id = R.drawable.femaledoctoravtar),
+                contentDescription = "",
+                modifier = modifier
+                    .aspectRatio(1f)
+                    .clip(CircleShape),
+                contentScale = ContentScale.FillBounds
+            )
+        }
+    }
+}

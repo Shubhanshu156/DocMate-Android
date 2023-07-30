@@ -74,12 +74,12 @@ fun HomeNavGraph(navController: NavHostController, modifier: Modifier) {
             ScheduleComposable(
             )
         }
-        composable(route = BottomBarScreen.Chat.route) {
-            ScreenContent(
-                name = BottomBarScreen.Chat.route,
-                onClick = { }
-            )
-        }
+//        composable(route = BottomBarScreen.Chat.route) {
+//            ScreenContent(
+//                name = BottomBarScreen.Chat.route,
+//                onClick = { }
+//            )
+//        }
         detailsNavGraph(navController = navController)
     }
 }
@@ -147,7 +147,7 @@ fun BottomBar(navController: NavHostController) {
     val screens = listOf(
         BottomBarScreen.Home,
         BottomBarScreen.Schedule,
-        BottomBarScreen.Chat,
+//        BottomBarScreen.Chat,
         BottomBarScreen.Profile,
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()

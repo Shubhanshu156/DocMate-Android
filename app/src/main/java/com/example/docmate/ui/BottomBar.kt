@@ -31,11 +31,11 @@ sealed class BottomBarScreen(
         title = "Schedule",
         icon=R.drawable.baseline_calendar_today_24
     )
-    object Chat : BottomBarScreen(
-        route = "CHAT",
-        title = "Chat",
-        icon = R.drawable.baseline_chat_24
-    )
+//    object Chat : BottomBarScreen(
+//        route = "CHAT",
+//        title = "Chat",
+//        icon = R.drawable.baseline_chat_24
+//    )
 
 
 }

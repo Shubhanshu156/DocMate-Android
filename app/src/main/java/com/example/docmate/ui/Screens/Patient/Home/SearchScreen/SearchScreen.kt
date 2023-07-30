@@ -68,9 +68,10 @@ import coil.compose.AsyncImage
 import com.example.docmate.R
 import com.example.docmate.data.models.Response.Doctor
 import com.example.docmate.data.models.Response.Gender
+import com.example.docmate.ui.Screens.Patient.ProfileScreen.ImageSection
 import com.example.docmate.ui.theme.DocColor
 import kotlinx.coroutines.launch
-
+import com.example.docmate.ui.Screens.Patient.ProfileScreen.ImageSection
 @OptIn(ExperimentalMaterialApi::class)
 //@Preview(showSystemUi = true)
 @Composable
@@ -289,8 +290,8 @@ fun DoctorCard(item: Doctor, onbook: (doctor: Doctor) -> Unit, isvisible: Boolea
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(5.dp)
         ) {
-            ImageSection(doctor = item)
-            Column(modifier = Modifier.padding((10.dp))) {
+            ImageSection(doctor = item,modifier=Modifier.weight(0.3f))
+            Column(modifier = Modifier.padding((10.dp)).weight(0.7f)) {
                 Text(
                     text = item.fullname,
                     fontWeight = FontWeight.Bold,
@@ -448,40 +449,40 @@ fun TitleSection() {
     }
 }
 
-@Composable
-fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
-    if (doctor.url != null) {
-        AsyncImage(
-            model = doctor.url,
-            contentDescription = null,
-            modifier = modifier
-                .size(100.dp)
-                .clip(RoundedCornerShape(10.dp)),
-            contentScale = ContentScale.FillBounds
-        )
-
-    } else {
-        if (doctor.gender == null || doctor.gender.uppercase() == Gender.MALE.name) {
-            Image(
-                painter = painterResource(id = R.drawable.maledoctoravtar),
-                contentDescription = "",
-                modifier = modifier
-                    .size(100.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillBounds
-            )
-        } else {
-            Image(
-                painter = painterResource(id = R.drawable.femaledoctoravtar),
-                contentDescription = "",
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.FillBounds
-            )
-        }
-    }
-}
+//@Composable
+//fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
+//    if (doctor.url != null) {
+//        AsyncImage(
+//            model = doctor.url,
+//            contentDescription = null,
+//            modifier = modifier
+//                .size(100.dp)
+//                .clip(RoundedCornerShape(10.dp)),
+//            contentScale = ContentScale.FillBounds
+//        )
+//
+//    } else {
+//        if (doctor.gender == null || doctor.gender.uppercase() == Gender.MALE.name) {
+//            Image(
+//                painter = painterResource(id = R.drawable.maledoctoravtar),
+//                contentDescription = "",
+//                modifier = modifier
+//                    .size(100.dp)
+//                    .clip(RoundedCornerShape(10.dp)),
+//                contentScale = ContentScale.FillBounds
+//            )
+//        } else {
+//            Image(
+//                painter = painterResource(id = R.drawable.femaledoctoravtar),
+//                contentDescription = "",
+//                modifier = Modifier
+//                    .size(100.dp)
+//                    .clip(RoundedCornerShape(10.dp)),
+//                contentScale = ContentScale.FillBounds
+//            )
+//        }
+//    }
+//}
 
 
 @Composable
