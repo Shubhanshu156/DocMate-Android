@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Home
+package com.example.docmate.ui.Screens.Patient.Home
 
 import android.Manifest
 import android.content.pm.PackageManager

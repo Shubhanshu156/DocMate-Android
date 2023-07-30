@@ -9,7 +9,10 @@ import com.example.docmate.data.models.Request.addReview
 import com.example.docmate.data.models.Response.AllDoctors
 import com.example.docmate.data.models.Response.AppointmentResponse
 import com.example.docmate.data.models.Response.CategoryResponse
+import com.example.docmate.data.models.Response.DocAppointment
+import com.example.docmate.data.models.Response.DocAppointmentItem
 import com.example.docmate.data.models.Response.Doctor
+import com.example.docmate.data.models.Response.DoctorRequest
 import com.example.docmate.data.models.Response.ImageResponse
 import com.example.docmate.data.models.Response.Patient
 import com.example.docmate.data.models.Response.ReviewsResponse
@@ -29,13 +32,14 @@ import retrofit2.http.Part
 import retrofit2.http.Query
 
 interface APIService {
+
     @POST("signin")
     suspend fun signIn(@Body request: AuthRequest): Response<SigninResponse>
 
     @POST("signup") // Add the appropriate endpoint URL
     suspend fun signUp(@Body request: AuthRequest): Response<SignUpResponse>
 
-    @GET("patient/categories")
+    @GET("categories")
     suspend fun getCategory(): Response<List<CategoryResponse>>
 
     @GET("patient/topdoctors")
@@ -79,6 +83,15 @@ interface APIService {
 
     @PATCH("patient/profile")
     suspend fun updatePatientProfile(@Body patient: Patient)
+
+    @POST("doctor/appointment")
+    suspend fun getDoctorAppointment():Response<List<DocAppointmentItem>>
+    @POST("doctor/accept")
+    suspend fun AcceptAppointment(@Body appointment:AppointMentStatus)
+    @POST("doctor/reject")
+    suspend fun RejectAppointment(@Body appointment:AppointMentStatus)
+    @PATCH("doctor/profile")
+    suspend fun updateDoctorProfile(@Body doctor: DoctorRequest)
 }
 
 data class GetReviewRequest(
@@ -87,4 +100,7 @@ data class GetReviewRequest(
 
 data class ReviewResponse(
     val message: String
+)
+data class AppointMentStatus(
+    val appointmentid:String
 )

@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.ProfileScreen
+package com.example.docmate.ui.Screens.Patient.ProfileScreen
 
 import android.util.Log
 import androidx.compose.runtime.MutableFloatState

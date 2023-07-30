@@ -41,7 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.docmate.R
-import com.example.docmate.ui.Screens.SignIn.SigninViewModel
+import com.example.docmate.ui.Screens.Auth.SignIn.SigninViewModel
 
 //import com.example.docmate.ui.Screens.SignIn.SigninViewModel
 

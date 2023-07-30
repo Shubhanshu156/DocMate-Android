@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.SignUp
+package com.example.docmate.ui.Screens.Auth.SignUp
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf

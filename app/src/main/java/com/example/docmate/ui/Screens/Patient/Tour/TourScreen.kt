@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Tour
+package com.example.docmate.ui.Screens.Patient.Tour
 
 import android.icu.text.CaseMap
 import androidx.compose.animation.animateColorAsState

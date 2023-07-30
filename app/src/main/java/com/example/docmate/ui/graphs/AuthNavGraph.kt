@@ -9,8 +9,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.docmate.ui.Screens.Splash.SplashScreen
-import com.example.docmate.ui.Screens.Tour.TourScreen
+import com.example.docmate.ui.Screens.Auth.Splash.SplashScreen
+import com.example.docmate.ui.Screens.Patient.Tour.TourScreen
 import com.example.docmate.ui.theme.Screens.SignIn.Signin
 import com.example.docmate.ui.theme.Screens.SignUp.SignUp
 

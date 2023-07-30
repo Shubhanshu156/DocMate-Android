@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.ProfileScreen
+package com.example.docmate.ui.Screens.Patient.ProfileScreen
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker
@@ -64,7 +64,7 @@ import com.example.docmate.Utility.Utils
 import com.example.docmate.data.models.Response.Doctor
 import com.example.docmate.data.models.Response.Gender
 import com.example.docmate.data.models.ReviewItem
-import com.example.docmate.ui.Screens.Home.SearchScreen.formatHourWithAmPm
+import com.example.docmate.ui.Screens.Patient.Home.SearchScreen.formatHourWithAmPm
 import com.example.docmate.ui.theme.DocColor
 import com.example.docmate.ui.theme.starcolor
 import java.util.Calendar
@@ -256,7 +256,7 @@ fun DoctorProfileCard(
                 }
 
                 Text(
-                    text = doctor.category, fontWeight = FontWeight.Light,
+                    text = doctor.category.toString(), fontWeight = FontWeight.Light,
                     fontStyle = FontStyle.Italic,
                     fontSize = 16.sp,
                 )
@@ -662,7 +662,7 @@ fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
             contentDescription = null,
             modifier = modifier
                 .clip(RoundedCornerShape(10.dp)),
-            contentScale = ContentScale.Fit
+            contentScale = ContentScale.FillBounds
         )
 
     } else {
@@ -672,7 +672,7 @@ fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
                 contentDescription = "",
                 modifier = modifier
                     .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.FillBounds
             )
         } else {
             Image(
@@ -680,7 +680,7 @@ fun ImageSection(doctor: Doctor, modifier: Modifier = Modifier) {
                 contentDescription = "",
                 modifier = Modifier
                     .clip(RoundedCornerShape(10.dp)),
-                contentScale = ContentScale.Fit
+                contentScale = ContentScale.FillBounds
             )
         }
     }

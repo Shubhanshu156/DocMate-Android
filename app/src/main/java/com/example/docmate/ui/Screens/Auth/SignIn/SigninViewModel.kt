@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.SignIn
+package com.example.docmate.ui.Screens.Auth.SignIn
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
@@ -82,7 +82,7 @@ class SigninViewModel @Inject constructor(
                 if (msg.isSuccessful) {
                     signinmsg.value = "SignIn Successfully"
                     StoredToken.storeToken(token=msg.body()!!.token, userType =type.uppercase(),userid=msg.body()!!.userid!!)
-                    Log.e("SigninViewmodel", "You have been SIgnin Successfully ", )
+                    Log.e("SigninViewmodel", "You have been SIgnin Successfully ${msg.body()} ${type.uppercase()} ", )
                     isSuccess.value = true
 
                 } else if (msg.code() == 404) {

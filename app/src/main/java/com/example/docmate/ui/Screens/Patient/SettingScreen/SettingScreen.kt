@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.SettingScreen
+package com.example.docmate.ui.Screens.Patient.SettingScreen
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -54,7 +54,7 @@ import com.example.docmate.R
 import com.example.docmate.Utility.Status
 import com.example.docmate.Utility.Utils
 import com.example.docmate.data.models.Response.Gender
-import com.example.docmate.ui.Screens.ProfileScreen.ShowAnimation
+import com.example.docmate.ui.Screens.Patient.ProfileScreen.ShowAnimation
 
 @Composable
 fun SettingScreen(
@@ -446,6 +446,7 @@ fun ShowSuccessDialog(title: String, msg: String, onDismiss: () -> Unit) {
             TextButton(onClick = onDismiss) {
                 Text("OK")
             }
-        }
+        },
+
     )
 }

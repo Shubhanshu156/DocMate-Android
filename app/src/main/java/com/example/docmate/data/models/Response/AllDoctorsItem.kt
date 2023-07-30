@@ -2,11 +2,12 @@ package com.example.docmate.data.models.Response
 
 import com.example.docmate.ui.theme.Screens.SignIn.Gender
 
-data class Doctor(
+data class Doctor
+    (
     val PrevSession: Int? = 0,
     val about: String? = "",
     val age: String? = "0",
-    val category: String = "",
+    val category: String? = "",
     val fullname: String = "",
     val id: String = "",
     val payment: Int? = 0,
@@ -21,7 +22,18 @@ data class Doctor(
 )
 
 
-
+data class DoctorRequest(
+    val username:String?=null,
+    val category:String?=null,
+    val fullname:String?=null,
+    val age:String?=null,
+    val about:String?=null,
+    val payment:Int?=null,
+    val working_hour_start:Int?=null,
+    val working_hour_end: Int?=null,
+    val profileurl:String?=null,
+    val gender: String?=null
+)
 
 enum class Gender{
     MALE,

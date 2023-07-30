@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.SettingScreen
+package com.example.docmate.ui.Screens.Patient.SettingScreen
 
 import android.util.Log
 import androidx.core.text.isDigitsOnly

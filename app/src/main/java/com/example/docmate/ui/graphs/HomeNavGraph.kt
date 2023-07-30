@@ -45,11 +45,11 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.example.docmate.ui.BottomBarScreen
-import com.example.docmate.ui.Screens.Home.HomeScreenComposable
-import com.example.docmate.ui.Screens.Home.SearchScreen.SearchScreenComposable
-import com.example.docmate.ui.Screens.ProfileScreen.ProfileScreenComposable
-import com.example.docmate.ui.Screens.Schedule.ScheduleComposable
-import com.example.docmate.ui.Screens.SettingScreen.SettingScreen
+import com.example.docmate.ui.Screens.Patient.Home.HomeScreenComposable
+import com.example.docmate.ui.Screens.Patient.Home.SearchScreen.SearchScreenComposable
+import com.example.docmate.ui.Screens.Patient.ProfileScreen.ProfileScreenComposable
+import com.example.docmate.ui.Screens.Patient.Schedule.ScheduleComposable
+import com.example.docmate.ui.Screens.Patient.SettingScreen.SettingScreen
 import com.example.docmate.ui.theme.DocColor
 
 @Composable

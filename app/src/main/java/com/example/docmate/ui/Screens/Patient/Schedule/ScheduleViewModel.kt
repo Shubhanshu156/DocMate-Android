@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Schedule
+package com.example.docmate.ui.Screens.Patient.Schedule
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

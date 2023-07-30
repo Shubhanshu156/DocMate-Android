@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Schedule
+package com.example.docmate.ui.Screens.Patient.Schedule
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -170,11 +170,12 @@ fun AppointmentCard(i: Appointmentlist) {
 }
 
 @Composable
-fun StatusComposable(acceptedColor: Color, s: String) {
+fun StatusComposable(acceptedColor: Color, s: String,onclick:()->Unit={}) {
     Card(
         colors = CardDefaults.cardColors(
             containerColor = acceptedColor
-        )
+        ),
+        modifier = Modifier.clickable { onclick() }
     ) {
         Text(s, color = Color.White, modifier = Modifier.padding(horizontal = 4.dp))
     }

@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Splash
+package com.example.docmate.ui.Screens.Auth.Splash
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,19 +33,19 @@ fun SplashScreen(
     onDocHome: () -> Unit,
     onuserHome: () -> Unit
 ) {
-    val user:String?=SplashScreenViewModel.userType.value
     LaunchedEffect(true) {
-        delay(3000) // Delay for 3 seconds
-        if (SplashScreenViewModel.isFirstTime.value) {
+        val user: String? = SplashScreenViewModel.userType.value
+        if (SplashScreenViewModel.isFirstTime.value == true) {
             onSignin()
-        }
-        else {
+        } else if (SplashScreenViewModel.isFirstTime.value == false) {
+            if (user != null) {
+                delay(1000)
+                if (user.lowercase() == "doctor") {
 
-            if (user.equals("DOCTOR")){
-                onDocHome()
-            }
-            else{
-                onuserHome()
+                    onDocHome()
+                } else {
+                    onuserHome()
+                }
             }
         }
     }
@@ -66,7 +66,7 @@ fun SplashScreen(
         )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "DocMate${SplashScreenViewModel.isFirstTime.value}${user}",
+            text = "DocMate${SplashScreenViewModel.isFirstTime.value}}",
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Bold,
@@ -80,4 +80,5 @@ fun SplashScreen(
             fontStyle = FontStyle.Italic
         )
     }
-}
+
+    }

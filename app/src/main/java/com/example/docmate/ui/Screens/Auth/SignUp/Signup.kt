@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.docmate.R
-import com.example.docmate.ui.Screens.SignUp.SignUpViewModel
+import com.example.docmate.ui.Screens.Auth.SignUp.SignUpViewModel
 import com.example.docmate.ui.theme.Screens.SignIn.CustomAlertDialog
 
 

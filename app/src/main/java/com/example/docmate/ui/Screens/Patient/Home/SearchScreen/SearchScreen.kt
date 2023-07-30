@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Home.SearchScreen
+package com.example.docmate.ui.Screens.Patient.Home.SearchScreen
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -94,7 +94,7 @@ fun SearchScreenComposable(onprofile: (String) -> Unit,SearchScreenViewModel: Se
     BottomSheetScaffold(
         scaffoldState = scaffoldState,
         sheetContent = {
-            ShowCategoryScreen(param = { newind ->
+            ShowCategoryScreen(SearchScreenViewModel =SearchScreenViewModel,param = { newind ->
                 categoryindex = newind
                 scope.launch {
                     SearchScreenViewModel.Search("", categoryindex)
@@ -147,7 +147,7 @@ fun SearchScreenComposable(onprofile: (String) -> Unit,SearchScreenViewModel: Se
 @Composable
 fun ShowCategoryScreen(
     param: (Int) -> Unit,
-    SearchScreenViewModel: SearchScreenViewModel = hiltViewModel()
+    SearchScreenViewModel: SearchScreenViewModel
 ) {
     var selectedcategory by remember {
         mutableStateOf(-1)
@@ -298,7 +298,7 @@ fun DoctorCard(item: Doctor, onbook: (doctor: Doctor) -> Unit, isvisible: Boolea
                     fontSize = 18.sp
                 )
                 Text(
-                    text = item.category,
+                    text = item.category.toString(),
                     fontWeight = FontWeight.Light,
                     fontStyle = FontStyle.Italic,
                     fontSize = 12.sp,

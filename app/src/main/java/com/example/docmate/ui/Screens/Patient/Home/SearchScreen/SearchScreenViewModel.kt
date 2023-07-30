@@ -1,4 +1,4 @@
-package com.example.docmate.ui.Screens.Home.SearchScreen
+package com.example.docmate.ui.Screens.Patient.Home.SearchScreen
 
 import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
